@@ -10,19 +10,29 @@ A simple React application for submitting, editing, viewing, and deleting user i
 - Delete individual users or all users with confirmation
 
 
-## Walkthrough of Features & Functions
-- Add New User
-    Opens a modal form for entering user details. Input validation is performed to ensure proper formatting and logical consistency 
-- Edit User
-    Loads the selected user's data into the form for editing. Upon submission, the original entry is updated.
-- Delete Individual User
-    Prompts for confirmation before removing the selected user from the list.
-- Delete All Users
-    Deletes all submitted user data after confirmation.
-- Input Validation Includes:
-    Names must begin with a letter and can include apostrophes, spaces, and hyphens.
-    Suffixes are optional, limited to 5 characters.
-    Age must match the calculated age based on the birthdate.
+## Walkthrough 
+
+- **Add New User**  
+  Opens a modal form where users can enter new user details.  
+  Input validation ensures data is properly formatted and logically consistent before submission.
+
+- **Edit User**  
+  Loads the selected user's data into the form for editing.  
+  Upon submitting changes, the original entry is updated with the new data.
+
+- **Delete Individual User**  
+  Clicking the delete button prompts for confirmation.  
+  If confirmed, the selected user is removed from the list.
+
+- **Delete All Users**  
+  A delete-all option is available and requires confirmation.  
+  Once confirmed, all user data entries are cleared.
+
+- **Input Validation**  
+  - Names must begin with a letter and may include apostrophes, spaces, and hyphens.  
+  - Suffixes are optional and limited to 5 characters.  
+  - Age must match the calculated age based on the entered birthdate.
+
 
 
 ## What I learned
