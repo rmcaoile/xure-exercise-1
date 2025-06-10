@@ -8,6 +8,7 @@ A simple React application for submitting, editing, viewing, and deleting user i
 - Validate inputs
 - Confirming before submitting data
 - Delete individual users or all users with confirmation
+- Persistent data using Local Storage
 
 
 ## Walkthrough 
@@ -32,6 +33,11 @@ A simple React application for submitting, editing, viewing, and deleting user i
   - Names must begin with a letter and may include apostrophes, spaces, and hyphens.  
   - Suffixes are optional and limited to 5 characters.  
   - Age must match the calculated age based on the entered birthdate.
+ 
+- **Local Storage Integrationn**  
+  - All user data is stored in the browser’s local storage.
+  - Data persists even after page reloads or browser restarts.
+  - On app load, data is retrieved from local storage and rendered.
 
 
 
@@ -39,8 +45,10 @@ A simple React application for submitting, editing, viewing, and deleting user i
 - Modal handling and conditional rendering in React.
 - I learned more about proper error handling and validating in form submission.
 - Importance of input validation, especially when dependent fields like age and birthdate must correlate.
+- Persisting state using local storage.
 
 ## Challenges Faced
 - Ensuring the birthdate-to-age logic accurately matched.
 - Managing multiple modals (form, confirm delete, confirm clear).
 - Reusing Form modal for editing user information.
+- Keeping local storage synchronized with in-app state.
