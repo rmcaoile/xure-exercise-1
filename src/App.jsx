@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function UserForm() {
@@ -9,7 +9,20 @@ function UserForm() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showDeleteAllModal, setShowDeleteAllModal] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
-
+  
+  useEffect(() => {
+    const stored = localStorage.getItem('submittedUsers');
+    if (stored) {
+      setSubmittedData(JSON.parse(stored));
+    }
+  }, []);
+  
+  const saveToLocalStorage = (data) => {
+    localStorage.setItem('submittedUsers', JSON.stringify(data));
+    setSubmittedData(data); // trigger UI update
+  };
+  
+  
   const initialFormState = {
     firstName: '',
     middleName: '',
@@ -19,9 +32,9 @@ function UserForm() {
     birthdate: '',
     address: '',
   };
-
+  
   const [formData, setFormData] = useState(initialFormState);
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -105,17 +118,18 @@ function UserForm() {
   };
 
   const confirmSubmission = () => {
+    let updatedData;
+
     if (editIndex !== null) {
       // Update existing entry
-      setSubmittedData((prev) => {
-        const updated = [...prev];
-        updated[editIndex] = formData;
-        return updated;
-      });
+      updatedData = [...submittedData];
+      updatedData[editIndex] = formData;
     } else {
       // Add new entry
-      setSubmittedData((prev) => [...prev, formData]);
+      updatedData = [...submittedData, formData];
     }
+
+    saveToLocalStorage(updatedData); // Save to localStorage and state
 
     setShowConfirmModal(false);
     setShowFormModal(false);
@@ -124,13 +138,14 @@ function UserForm() {
   };
 
   const confirmDelete = () => {
-    setSubmittedData((prev) => prev.filter((_, idx) => idx !== deleteIndex));
+    const updatedData = submittedData.filter((_, idx) => idx !== deleteIndex);
+    saveToLocalStorage(updatedData); // Update localStorage and state
     setShowDeleteModal(false);
     setDeleteIndex(null);
   };
   
   const confirmDeleteAll = () => {
-    setSubmittedData([]);
+    saveToLocalStorage([]);         // Clear local storage and state
     setShowDeleteAllModal(false);
   };
 
