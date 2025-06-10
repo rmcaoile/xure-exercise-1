@@ -1,12 +1,36 @@
-# React + Vite
+# User Form App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application for submitting, editing, viewing, and deleting user information.
 
-Currently, two official plugins are available:
+## Features
+- Add new user information 
+- Edit existing user data
+- Validate inputs
+- Confirming before submitting data
+- Delete individual users or all users with confirmation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Walkthrough of Features & Functions
+- Add New User
+    Opens a modal form for entering user details. Input validation is performed to ensure proper formatting and logical consistency 
+- Edit User
+    Loads the selected user's data into the form for editing. Upon submission, the original entry is updated.
+- Delete Individual User
+    Prompts for confirmation before removing the selected user from the list.
+- Delete All Users
+    Deletes all submitted user data after confirmation.
+- Input Validation Includes:
+    Names must begin with a letter and can include apostrophes, spaces, and hyphens.
+    Suffixes are optional, limited to 5 characters.
+    Age must match the calculated age based on the birthdate.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## What I learned
+- Modal handling and conditional rendering in React.
+- I learned more about proper error handling and validating in form submission.
+- Importance of input validation, especially when dependent fields like age and birthdate must correlate.
+
+## Challenges Faced
+- Ensuring the birthdate-to-age logic accurately matched.
+- Managing multiple modals (form, confirm delete, confirm clear).
+- Reusing Form modal for editing user information.
